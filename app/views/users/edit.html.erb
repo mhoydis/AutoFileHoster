@@ -1,0 +1,22 @@
+<h1>Edit User</h1>
+
+<% form_for @user do |f| %>
+	<%= f.label "Login" %>
+	<%= f.text_field :login %> <br />
+
+	<%= f.label "Email"%>
+	<%= f.text_field :email %> <br />
+
+	<%= f.label "Admin?"%>
+	<%= f.check_box :admin %> <br />
+
+	<%= f.submit "Commit Changes"%>
+
+<% end %>
+
+
+<%= link_to 'Destroy', @user, :confirm => 'Are you sure?', :method => :delete %>
+
+
+<br />
+<%= link_to "User Index" , users_path %>

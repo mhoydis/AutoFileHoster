@@ -1,0 +1,16 @@
+<h1> Showing all users </h1>
+
+Username  &nbsp; | &nbsp; Email  &nbsp; | &nbsp; Is Admin? <br \>
+<ul>
+<% @users.each do |user| %>
+	<li> 
+		<%= link_to user.login, user_path(user.id) %> 
+		&nbsp; | &nbsp;  
+		<%= user.email %>  
+		&nbsp; | &nbsp; 
+		<%= user.admin %> 
+	</li>
+<% end %>
+</ul>
+
+<%= link_to "Create a New User" , new_user_path %>
