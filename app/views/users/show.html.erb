@@ -18,7 +18,16 @@
 <% end %>
 
 
-
+<% if owner? %>
+	<p>
+		Hey, This is YOU!!!!!
+	</p>	
+<% else %>
+	<p>
+		This is <%= params[:id].inspect %> but you are <%= current_user.id.inspect %>.  <br />
+		admin_or_owner_only? evaluates to <%= admin_or_owner_only? %>.
+	</p>
+<% end %>
 
 <br />
 <%= link_to "Edit this user" , edit_user_path %>

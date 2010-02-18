@@ -1,16 +1,32 @@
 <h1> Showing all users </h1>
 
-Username  &nbsp; | &nbsp; Email  &nbsp; | &nbsp; Is Admin? <br \>
-<ul>
-<% @users.each do |user| %>
-	<li> 
-		<%= link_to user.login, user_path(user.id) %> 
-		&nbsp; | &nbsp;  
-		<%= user.email %>  
-		&nbsp; | &nbsp; 
-		<%= user.admin %> 
-	</li>
-<% end %>
-</ul>
+<table border=1 cellpadding=10 cellspacing=0>
+	<tr> 
+		<td>
+			<b>Username</b>
+		</td>
+		<td>  
+			<b>Email</b>  
+		</td>
+		<td> 
+			<b>Is Admin?</b>
+		</td>
+	</tr>
 
-<%= link_to "Create a New User" , new_user_path %>
+<% @users.each do |user| %>
+	<tr> 
+		<td>
+			<%= link_to user.login, user_path(user.id) %> 
+		</td>
+		<td>  
+			<%= user.email %>  
+		</td>
+		<td> 
+			<%= user.admin %>
+		</td>
+	</tr>
+<% end %>
+
+</table>
+
+<p><%= link_to "Create a New User" , new_user_path %></p>

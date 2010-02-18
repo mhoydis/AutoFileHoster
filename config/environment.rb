@@ -40,5 +40,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   
   config.gem "paperclip"
+  config.gem "restful_authentication"
   
 end
