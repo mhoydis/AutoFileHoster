@@ -52,9 +52,11 @@ class User < ActiveRecord::Base
 
 
 
-  # This one line here is for Paperclip...  
-  has_attached_file :file
-  
+  # This here is for Paperclip.  It will store files in a dir called attachments/files under the root dir of the app.
+  # The method show in the attachments controller will dish the file to the user, after going through the appropriate auths. 
+  has_attached_file :file,
+  :url  => "/attachments/:id",
+  :path => ":rails_root/attachments/files/:id/:style/:basename.:extension"
 
 
 end

@@ -51,7 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :users
   #map.resources :attachments
   map.resources :users do |user|
-    user.resource :attachments, :only => [:destroy]
+    user.resource :attachments, :only => [:destroy, :show]
   end
 
 

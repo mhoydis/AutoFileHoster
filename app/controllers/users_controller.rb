@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   #include AuthenticatedSystem
   
   before_filter :login_required
-  before_filter :authorize, :only => [:create, :new, :edit, :update, :destroy]
+  before_filter :authorize, :only => [:create, :new, :edit, :update, :destroy, :show]
   
   
   def show

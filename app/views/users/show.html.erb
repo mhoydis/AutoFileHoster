@@ -6,7 +6,7 @@
 <br />
 <b>Is Admin?:</b>  <%= @user.admin %>
 <br />
-<b>Downloadable File:</b>  <%= link_to @user.file.url, @user.file.url %> (<%= link_to 'Delete this file', user_attachments_path(@user), :confirm => 'Are you sure you want to delete this file?  It is NOT undoable!', :method => :delete %>)
+<b>Downloadable File:</b>  <%= link_to user_attachments_path(@user), user_attachments_path(@user), :method => :get %> (<%= link_to 'Delete this file', user_attachments_path(@user), :confirm => 'Are you sure you want to delete this file?  It is NOT undoable!', :method => :delete %>)
 
 <% form_for @user, :html => { :multipart => true } do |f| %>
 

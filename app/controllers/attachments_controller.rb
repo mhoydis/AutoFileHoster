@@ -1,8 +1,17 @@
 class AttachmentsController < ApplicationController
 
+  before_filter :login_required
+#  before_filter :authorize, :only => [:destroy, :download, :upload, :index, :show]
+
+#  def show
+#    @attachment = Attachments.find(params[:id])
+#  end
+
   def show
-    @attachment = Attachments.find(params[:id])
+    attachment = User.find(params[:id])
+ #   send_file attachment.data.path, :type => attachment.data_content_type, :disposition => 'attachment', :x_sendfile => true
   end
+
 
   def index
     respond_to do |format|
