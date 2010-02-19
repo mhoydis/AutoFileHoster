@@ -1,0 +1,19 @@
+<h1> Show Attachment</h1>
+
+<b>Nothing to do here.</b>
+
+
+<% if owner? %>
+	<p>
+		Hey, This is YOU!!!!!
+	</p>	
+<% else %>
+	<p>
+		This is <%= params[:user_id].inspect %> but you are <%= current_user.id.inspect %>.  <br />
+		admin_or_owner_only? evaluates to <%= admin_or_owner_only? %>.
+	</p>
+<% end %>
+
+
+<br />
+<%= link_to "User Index" , users_path %>

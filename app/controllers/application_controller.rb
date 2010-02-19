@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
 
 helper_method :admin_or_owner_only?
 helper_method :owner?
+helper_method :admin?
 
 protected
 
@@ -39,8 +40,20 @@ protected
      current_user.admin? || current_user.id == params[:id].to_i
   end
 
+  def admin?
+     current_user.admin?
+  end
+  
   def owner?
     current_user.id == params[:id].to_i
+  end
+
+  def authorize_attachment
+    unless current_user.admin? || current_user.id == params[:user_id].to_i
+      flash[:notice] = "Denied.  You are not the owner of this Attachment, and you are not an Admin."
+      redirect_to users_path and return 
+      false
+    end
   end
 
 #  protected

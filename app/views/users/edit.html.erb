@@ -8,7 +8,11 @@
 	<%= f.text_field :email %> <br />
 
 	<%= f.label "Admin?"%>
-	<%= f.check_box :admin %> <br />
+	<% if admin? %>
+		<%= f.check_box :admin %> <br />
+	<% else %>
+		<%= f.check_box :admin, :disabled => true, :readonly => true %> (Checkbox is disabled because you cannot grant yourself adminship if you are not Admin!)<br />
+	<% end %>
 
 	<%= f.submit "Commit Changes"%>
 
