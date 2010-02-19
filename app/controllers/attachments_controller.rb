@@ -8,8 +8,10 @@ class AttachmentsController < ApplicationController
 #  end
 
   def show
-    attachment = User.find(params[:id])
- #   send_file attachment.data.path, :type => attachment.data_content_type, :disposition => 'attachment', :x_sendfile => true
+    attachment = User.find(params[:user_id])
+    send_file attachment.file.path, :type => attachment.file_content_type, :disposition => 'attachment', :x_sendfile => def true(args)
+    end
+    
   end
 
 
