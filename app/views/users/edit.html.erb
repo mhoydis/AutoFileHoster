@@ -14,6 +14,13 @@
 		<%= f.check_box :admin, :disabled => true, :readonly => true %> (Checkbox is disabled because you cannot grant yourself adminship if you are not Admin!)<br />
 	<% end %>
 
+	<% if owner? || admin? %>
+		<%= f.label "Password"%>
+		<%= f.text_field :password %> <br />
+		<%= f.label "Confirm Password"%>
+		<%= f.text_field :password_confirmation %> <br />
+	<% end %>
+
 	<%= f.submit "Commit Changes"%>
 
 <% end %>
